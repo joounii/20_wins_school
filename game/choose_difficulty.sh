@@ -1,9 +1,6 @@
 #!/bin/bash
-. ./logic/create_menu.sh
-. ./logic/colors.sh
-. ./game/singleplayer/pve_random.sh
 
-text1="$(yellow "Choose the difficulty for this game!")"
+text="$(yellow "Choose the difficulty for this game!")"
 
 choose_difficulty () {
 
@@ -27,5 +24,3 @@ choose_difficulty () {
             ;;
     esac
 }
-
-choose_difficulty

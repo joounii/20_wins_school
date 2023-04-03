@@ -1,8 +1,5 @@
 #!/bin/bash
 
-. ./logic/create_menu.sh
-. ./logic/colors.sh
-
 player_trun () {
 
     selected_item=0
@@ -22,8 +19,7 @@ player_trun () {
             x=$(( x + 2 ))
             ;;
         2)
-            transport=0
-            break
+            stop_loop=true
             ;;
     esac
     
@@ -35,12 +31,14 @@ pc_turn () {
 }
 
 pve_random () {
+    key=""
+    stop_loop=false
     declare -i transport=0
     declare -i x=0
     declare -i pc=0
     text="$(green "The current number is") $(blue "$x")$(green ". Do you want to add") $(blue "1") $(green "or") $(blue "2") $(green "?")"
 
-    while [ $x -lt 20 ]
+    while [ $x -lt 20 ] && [ $stop_loop != true ]
     do
         player_trun
 
@@ -60,10 +58,7 @@ pve_random () {
 
         text="$(green "PC added") $(blue "$pc")$(green ".\nThe current number is") $(blue "$x")$(green ". Do you want to add") $(blue "1") $(green "or") $(blue "2") $(green "?")"
     done
-
-    if [[ $transport == 0 ]]
-    then
-        choose_difficulty
-    fi
+    
+    read -n 1 -s -r -p "Press any key to continue"
+    choose_difficulty
 }
-
