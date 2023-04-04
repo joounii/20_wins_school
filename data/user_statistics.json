@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "pve_random": [
+        {
+          "win": 0,
+          "lose": 0
+        }
+      ]
+    }
+  ]
+}

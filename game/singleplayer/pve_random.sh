@@ -45,6 +45,7 @@ pve_random () {
         if [ $x -ge 20 ]; then
                 echo "$(yellow "You won!")"
                 statistics_player_won=$((statistics_player_won + 1))
+                jq --arg name "$name" '.users |= map(if .name == $name then .pve_random[0].win += 1 else . end)' ./data/user_statistics.json > tmpfile && mv tmpfile ./data/user_statistics.json
                 save_statistics
                 break
         fi
@@ -56,6 +57,7 @@ pve_random () {
                 echo -e "$text"
                 echo "$(yellow "PC won!")"
                 statistics_pc_won=$((statistics_pc_won + 1))
+                jq --arg name "$name" '.users |= map(if .name == $name then .pve_random[0].lose += 1 else . end)' ./data/user_statistics.json > tmpfile && mv tmpfile ./data/user_statistics.json
                 save_statistics
                 break
         fi
@@ -64,5 +66,5 @@ pve_random () {
     done
     
     read -n 1 -s -r -p "Press any key to continue"
-    choose_difficulty
+    home
 }
