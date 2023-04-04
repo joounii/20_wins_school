@@ -7,12 +7,15 @@ statistic_page () {
     read get_name
 
     if jq --arg name "$get_name" '.users[].name == $name' ./data/user_statistics.json | grep -q true; then
-        win=$(jq --arg get_name "$get_name" '.users[] | select(.get_name == $get_name) | .pve_random[].win' ./data/user_statistics.json)
-        lose=$(jq --arg get_name "$get_name" '.users[] | select(.get_name == $get_name) | .pve_random[].lose' ./data/user_statistics.json)
+        win_random=$(jq --arg get_name "$get_name" '.users[] | select(.name == $get_name) | .pve_random[].win' ./data/user_statistics.json)
+        lose_random=$(jq --arg get_name "$get_name" '.users[] | select(.name == $get_name) | .pve_random[].lose' ./data/user_statistics.json)
+        win_impossible=$(jq --arg get_name "$get_name" '.users[] | select(.name == $get_name) | .pve_impossible[].win' ./data/user_statistics.json)
+        lose_impossible=$(jq --arg get_name "$get_name" '.users[] | select(.name == $get_name) | .pve_impossible[].lose' ./data/user_statistics.json)
 
         clear
         echo -e "Here are the statistics for the user $get_name\n\n"
-        echo -e "Random bot:\n  wins: $win\n  loses: $lose\n\n"
+        echo -e "Random bot:\n  wins: $win_random\n  loses: $lose_random"
+        echo -e "Impossible bot:\n  wins: $win_impossible\n  loses: $lose_impossible\n"
     else
         echo "User $get_name does not exist"
     fi

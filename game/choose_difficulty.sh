@@ -7,7 +7,7 @@ choose_difficulty () {
     declare -i transport=0
 
     selected_item=0
-    menu_items=("$(magenta "Random")" "$(blue "Back")")
+    menu_items=("$(magenta "Random")" "$(magenta "Impossible")" "$(blue "Back")")
 
     run_menu "$selected_item" "${menu_items[@]}"
     menu_result="$?"
@@ -20,6 +20,9 @@ choose_difficulty () {
             pve_random
             ;;
         1)
+            pve_impossible
+            ;;
+        2)
             home
             ;;
     esac
