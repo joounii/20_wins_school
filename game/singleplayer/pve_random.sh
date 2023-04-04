@@ -44,6 +44,8 @@ pve_random () {
 
         if [ $x -ge 20 ]; then
                 echo "$(yellow "You won!")"
+                statistics_player_won=$((statistics_player_won + 1))
+                save_statistics
                 break
         fi
 
@@ -53,6 +55,8 @@ pve_random () {
         if [ $x -ge 20 ]; then
                 echo -e "$text"
                 echo "$(yellow "PC won!")"
+                statistics_pc_won=$((statistics_pc_won + 1))
+                save_statistics
                 break
         fi
 

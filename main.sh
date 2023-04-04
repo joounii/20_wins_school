@@ -4,6 +4,9 @@
 . ./game/singleplayer/pve_random.sh
 . ./game/choose_difficulty.sh
 . ./pages/login.sh
+. ./data/statistics.sh
+
+
 
 text="$(yellow "Please Log In befor you start playing")"
 
@@ -55,4 +58,12 @@ home () {
     fi
 }
 
+save_statistics() {
+    for i in "${!statistics_@}"; do
+        printf '%s=%q\n' "$i" "${!i}"
+    done > data/statistics.sh
+}
+
+
+save_statistics
 home
