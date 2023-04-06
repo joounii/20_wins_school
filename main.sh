@@ -1,6 +1,8 @@
 #!/bin/bash
 . ./logic/create_menu.sh
 . ./logic/colors.sh
+. ./game/singleplayer/pve_easy.sh
+. ./game/singleplayer/pve_hard.sh
 . ./game/singleplayer/pve_random.sh
 . ./game/singleplayer/pve_impossible.sh
 . ./game/choose_difficulty.sh

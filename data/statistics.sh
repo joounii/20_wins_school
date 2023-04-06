@@ -1,2 +1,2 @@
-statistics_pc_won=3
-statistics_player_won=1
+statistics_pc_won=10
+statistics_player_won=6
