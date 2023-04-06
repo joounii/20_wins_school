@@ -6,7 +6,7 @@ home () {
 
     if [ -f "data/login.txt" ]; then
         name=$(cat ./data/login.txt)
-        text="$(yellow "Hello $name. What would you like to do?")"
+        text="$(yellow "Mr. Mornigan - ")So your name is ""$(user "$name"), if you want you we can play some games until you remember clearly"
         selected_item=0
         menu_items=("$(magenta "Singelplayer")" "$(cyan "Statistics")" "$(blue "Log_Out")" "$(red "Exit")")
 
