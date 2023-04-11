@@ -30,7 +30,6 @@ pve_easy () {
                 echo "$(yellow "PC won!")"
                 statistics_pc_won=$((statistics_pc_won + 1))
                 jq --arg name "$name" '.users |= map(if .name == $name then .pve_easy[0].lose += 1 else . end)' ./data/user_statistics.json > tmpfile && mv tmpfile ./data/user_statistics.json
-                save_statistics
                 break
         fi
 
@@ -42,7 +41,6 @@ pve_easy () {
                 echo "$(yellow "You won!")"
                 statistics_player_won=$((statistics_player_won + 1))s
                 jq --arg name "$name" '.users |= map(if .name == $name then .pve_easy[0].win += 1 else . end)' ./data/user_statistics.json > tmpfile && mv tmpfile ./data/user_statistics.json
-                save_statistics
                 break
         fi
     done

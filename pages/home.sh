@@ -8,7 +8,7 @@ home () {
         name=$(cat ./data/login.txt)
         text="$(yellow "Hello $name. What would you like to do?")"
         selected_item=0
-        menu_items=("$(magenta "Singelplayer")" "$(cyan "Statistics")" "$(blue "Log_Out")" "$(red "Exit")")
+        menu_items=("$(magenta "Singelplayer")" "$(magenta "PVP")" "$(cyan "Statistics")" "$(blue "Log_Out")" "$(red "Exit")")
 
         run_menu "$selected_item" "${menu_items[@]}"
         menu_result="$?"
@@ -21,13 +21,16 @@ home () {
                 choose_difficulty
                 ;;
             1)
-                statistic_page
+                pvp_start
                 ;;
             2)
+                statistic_page
+                ;;
+            3)
                 rm ./data/login.txt
                 home
                 ;;
-            3)
+            4)
                 clear
                 exit 0
                 ;;

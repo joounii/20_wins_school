@@ -23,8 +23,10 @@ install_utilities () {
             elif command -v "choco" &> /dev/null
             then
                 echo "Could not install $tool automatically. Please install it manually in a CMD with administrator rights and then run the script again. You can try this command to install it: choco install $tool "
+                exit
             else
                 echo "Could not install $tool automatically. Please install it manually."
+                exit
             fi
         else
             echo "$tool is already installed."

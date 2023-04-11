@@ -25,29 +25,8 @@
           "win": 0,
           "lose": 0
         }
-      ]
-    },
-    {
-      "name": "joounii",
-      "pve_easy": [
-        {
-          "win": 0,
-          "lose": 0
-        }
       ],
-      "pve_hard": [
-        {
-          "win": 0,
-          "lose": 0
-        }
-      ],
-      "pve_random": [
-        {
-          "win": 0,
-          "lose": 0
-        }
-      ],
-      "pve_impossible": [
+      "pvp": [
         {
           "win": 0,
           "lose": 0
